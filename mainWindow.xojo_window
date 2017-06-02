@@ -171,6 +171,9 @@ End
 		  Dim teams() as string
 		  
 		  InFile = SpecialFolder.UserHome.child(Self.configName)
+		  if InFile.Exists = false then
+		    return 
+		  end if
 		  Try
 		    InPut = TextInputStream.Open(InFile)
 		    content = InPut.ReadAll
@@ -300,6 +303,7 @@ End
 		Group="Behavior"
 		InitialValue=".xojoslack"
 		Type="String"
+		EditorType="MultiLineEditor"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Frame"
